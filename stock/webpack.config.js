@@ -15,7 +15,8 @@ module.exports = (environment)=>{
             path: __dirname + "/dist",
             libraryTarget: "umd"
         },
-        mode: "none",
+        mode: "development",
+        
         optimization: {
             splitChunks: {
                 chunks: "all",
@@ -32,6 +33,14 @@ module.exports = (environment)=>{
                     }
                 }
             }
+        },
+        
+        devServer: {
+            contentBase: __dirname + '/dist',
+            https: true,
+            inline: false,
+            compress: true,
+            port: 10086
         },
         module: {
             rules: [
