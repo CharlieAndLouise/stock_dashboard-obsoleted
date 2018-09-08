@@ -1,0 +1,15 @@
+<div>
+    <div>
+        <input #stockSearch type="text" placeholder="Type stock symbol here...">        
+    </div>
+    <div>
+        <ul>
+            <li *ngFor="let stock of model.stockList">
+                <p>
+                    {{stock.symbol}} <br/>
+                    {{stock.name}}
+                </p>                
+            </li>
+        </ul>
+    </div>
+</div>

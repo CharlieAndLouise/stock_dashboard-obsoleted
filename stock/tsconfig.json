@@ -19,6 +19,8 @@
     ]
   },
   "exclude": [
-    "./src/test.ts"
+    "./src/test.ts",
+    "node_modules",
+    "e2e"
   ]
 }
