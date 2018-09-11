@@ -37,9 +37,9 @@ module.exports = (environment)=>{
         
         devServer: {
             contentBase: __dirname + '/dist',
-            https: true,
+            https: false,
             inline: false,
-            compress: true,
+            compress: false,
             port: 10086
         },
         module: {

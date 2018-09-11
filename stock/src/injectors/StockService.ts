@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
+import { Injectable, ComponentFactory } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { StockSymbol } from "../models/StockSymbol";
 import { map } from "rxjs/operators";
 import { Observable, of } from "rxjs";
+import { Company } from "../models/Company";
 
 @Injectable()
 export class StockService {
@@ -10,34 +10,20 @@ export class StockService {
 
     }
 
-    queryStockSymbol(ticker: string):Observable<StockSymbol[]> {
-        //alert("SF2");
-        let headers: HttpHeaders = new HttpHeaders();
-        headers = headers.append("Access-Control-Allow-Credentials", "true");
-        headers = headers.append("Access-Control-Allow-Origin", "*");
-        headers = headers.append("Authorization", "Bearer SGTYf6eL5psw7G2ZGELyaiMCBi9N");
-        //headers = headers.append("Content-Type", "text/plain");
-
+    queryStockSymbol(ticker: string):Observable<Company> {
         if (ticker) {
-            //{"symbol":"MSFT","name":"Microsoft Corporation","exch":"NAS","type":"S","exchDisp":"NASDAQ","typeDisp":"Equity"}
-            return this.http.get(`https://sandbox.tradier.com/v1/markets/lookup?q=${ticker}`, {
-                //withCredentials: true, 
-                headers: headers
-            }).pipe(
-                map((rawSymbols: any[])=> {
-                    return rawSymbols.map( (rawSymbol)=> {
-                        return {
-                            symbol: rawSymbol.symbol,
-                            name: rawSymbol.description,
-                            exch: rawSymbol.exchange,
-                            type: rawSymbol.type
-                        }
-                    });
+            ticker = encodeURIComponent(ticker);
+            //{"symbol":"AAPL","companyName":"Apple Inc.",
+            //"exchange":"Nasdaq Global Select","industry":"Computer Hardware",
+            //"website":"http://www.apple.com","description":"Apple Inc is designs, manufactures and markets mobile communication and media devices and personal computers, and sells a variety of related software, services, accessories, networking solutions and third-party digital content and applications.","CEO":"Timothy D. Cook","issueType":"cs","sector":"Technology","tags":["Technology","Consumer Electronics","Computer Hardware"]}
+            return this.http.jsonp(`https://api.iextrading.com/1.0/stock/${ticker}/company`, "callback").pipe(
+                map((resultCompany: Company)=> {
+                    return resultCompany;
                 })
             );        
         }
         else {
-            return of<StockSymbol[]>([]);
+            return of<Company>(null);
         }     
     }
 }

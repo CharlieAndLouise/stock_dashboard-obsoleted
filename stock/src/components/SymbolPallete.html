@@ -1,0 +1,10 @@
+<div>
+    <div><inpupt #stockSearch type="text" placeholder="Type stock symbol here..."></inpupt></div>
+    <div>
+        <ul>
+            <li *ngFor="let company of model.companies">
+                {{company.symbol}}
+            </li>
+        </ul>
+    </div>
+</div>

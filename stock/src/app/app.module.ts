@@ -1,23 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from "@angular/core";
-//import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
-import { StockSymbolTest } from '../components/StockSymbolTest';
+import { SymbolPalletComponent } from '../components/SymbolPallete';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    StockSymbolTest
+    SymbolPalletComponent
   ],
   imports: [
     BrowserModule,
-    //NgZorroAntdModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule   
   ],
   providers: [
+
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
