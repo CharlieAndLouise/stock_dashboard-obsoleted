@@ -1,22 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
+//import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
-import { SymbolPalletComponent } from '../components/SymbolPallete';
+import { SymbolPalleteComponent } from '../components/SymbolPallete';
+//import { CompanyInfoComponent } from "../components/CompanyInfo";
+import { StockService } from '../injectors/StockService';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SymbolPalletComponent
+    SymbolPalleteComponent,
+    //CompanyInfoComponent
   ],
   imports: [
     BrowserModule,
+  //  BrowserAnimationsModule,
     HttpClientModule,
-    HttpClientJsonpModule   
+    HttpClientJsonpModule  
   ],
   providers: [
-
+    StockService
   ],
   bootstrap: [AppComponent]
 })

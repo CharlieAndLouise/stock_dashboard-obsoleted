@@ -1,6 +1,9 @@
 <div>
-    <div><inpupt #stockSearch type="text" placeholder="Type stock symbol here..."></inpupt></div>
+    <div><input #stockSearch type="text" placeholder="Type stock symbol here..." ></div>
     <div>
+        <mat-radio-group>
+            
+        </mat-radio-group>
         <ul>
             <li *ngFor="let company of model.companies">
                 {{company.symbol}}

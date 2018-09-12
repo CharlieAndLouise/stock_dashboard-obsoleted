@@ -36,7 +36,7 @@ module.exports = (environment)=>{
         },
         
         devServer: {
-            contentBase: __dirname + '/dist',
+            contentBase: __dirname + '/src/assets',
             https: false,
             inline: false,
             compress: false,

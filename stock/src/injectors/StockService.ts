@@ -1,6 +1,6 @@
 import { Injectable, ComponentFactory } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { map } from "rxjs/operators";
+import { map, catchError } from "rxjs/operators";
 import { Observable, of } from "rxjs";
 import { Company } from "../models/Company";
 
@@ -19,8 +19,11 @@ export class StockService {
             return this.http.jsonp(`https://api.iextrading.com/1.0/stock/${ticker}/company`, "callback").pipe(
                 map((resultCompany: Company)=> {
                     return resultCompany;
+                }),
+                catchError((error:any)=> {
+                    return of <Company>(null);
                 })
-            );        
+            );
         }
         else {
             return of<Company>(null);
