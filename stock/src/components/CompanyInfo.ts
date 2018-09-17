@@ -10,7 +10,7 @@ export class CompanyInfoComponent {
     model: Model = new Model();
     constructor() {}
 
-    
+
 }
 
 class Model {

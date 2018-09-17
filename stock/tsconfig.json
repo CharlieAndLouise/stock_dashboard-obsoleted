@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -9,7 +9,11 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+	"target": "es5",
+	"paths": {
+		"@components": ["components/*"]
+	},
+
     "typeRoots": [
       "node_modules/@types"
     ],

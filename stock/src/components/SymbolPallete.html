@@ -1,11 +1,8 @@
 <div>
     <div><input #stockSearch type="text" placeholder="Type stock symbol here..." ></div>
     <div>
-        <mat-radio-group>
-            
-        </mat-radio-group>
         <ul>
-            <li *ngFor="let company of model.companies">
+            <li class="app-button" *ngFor="let company of model.companies" >
                 {{company.symbol}}
             </li>
         </ul>
