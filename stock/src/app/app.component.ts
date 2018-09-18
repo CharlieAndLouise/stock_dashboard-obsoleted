@@ -9,6 +9,10 @@ export class AppComponent {
     model: MainModel = new MainModel();
 
     constructor() {
-        // window["mainModel"] = this.model;
+    }
+
+
+    selectStockSymbol(stockSymbol: string) {
+        this.model.selectedStockSymbol = stockSymbol;
     }
 }

@@ -1,6 +1,6 @@
 
 export class LocalStorageAgent {
-	public static getItem(key: string, defaultValue: any = null) {
+	public static getItem(key: string, defaultValue: any = null): string {
 		if (key in localStorage) {
 			return localStorage.getItem(key);
 		}

@@ -1,7 +1,7 @@
 import { Company } from "./Company";
 
 export class MainModel {
-    favoriteStock: FavoriteStockModel = new FavoriteStockModel();    
+    selectedStockSymbol: string;
 }
 
 class FavoriteStockModel {

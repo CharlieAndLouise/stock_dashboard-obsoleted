@@ -33,14 +33,24 @@
 }
 
 
-.app-button {
-	background-color: #aaaaaa;
-	color: #101010;
+ul {
+    list-style-type: none;    
 }
 
-li.app-button {
-	text-decoration: none;
+.app-table {
+    table-layout: fixed;
+    border: 1px solid #aaaaaa;    
 }
 
+.app-table th {
+    vertical-align: top;
+    text-align: left;
+    border: 1px solid #aaaaaa;
+}
 
+.app-table td {
+    vertical-align: top;
+    text-align: left;
+    border: 1px solid #aaaaaa;
+}
 

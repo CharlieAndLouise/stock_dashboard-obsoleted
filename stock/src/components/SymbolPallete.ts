@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, Input } from "@angular/core";
+import { Component, ElementRef, ViewChild, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { fromEvent, timer } from "rxjs";
 import { switchMap, mergeMap } from "rxjs/operators";
 import { StockService } from "../injectors/StockService";
@@ -20,7 +20,8 @@ export class SymbolPalleteComponent implements OnInit {
         this.model.companies = stocks;
     }
 
-
+    @Output()
+    symbolSelected: EventEmitter<string> = new EventEmitter<string>();
 
     model: Model;
 
@@ -40,22 +41,27 @@ export class SymbolPalleteComponent implements OnInit {
             )
 		).subscribe(this.addStockSymbol);
 
-		var storedSymbols = LocalStorageAgent.getItem(FAVORITE_STOCKS, []);
-		this.model.companies = storedSymbols;
+		var storedSymbols = LocalStorageAgent.getItem(FAVORITE_STOCKS, "[]");
+		this.model.companies = JSON.parse(storedSymbols);
 	}
 
-	private addStockSymbol(value: Company) {
+	private addStockSymbol = (value: Company) => {
 		if (value) {
+
 			const existingSymbol = this.model.companies.find((v) => v.symbol === value.symbol);
 			if (!existingSymbol) {
 				this.model.companies.push(value);
-				const json = LocalStorageAgent.getItem(FAVORITE_STOCKS, []);
+				const json = LocalStorageAgent.getItem(FAVORITE_STOCKS, "[]");
 				let stockArray = JSON.parse(json);
 				stockArray.push(value);
 				LocalStorageAgent.setItem(FAVORITE_STOCKS, JSON.stringify(stockArray));
 			}
 		}
-	}
+    }
+    
+    selectSymbol(company: Company) {
+        this.symbolSelected.emit(company.symbol);
+    }
 }
 
 class Model {
