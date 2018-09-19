@@ -1,15 +1,19 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "module": "es2015",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "compileOnSave": false,
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "outDir": "./dist/out-tsc",
+      "sourceMap": true,
+      "declaration": false,
+      "module": "es2015",
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
     "target": "es5",
+    "paths": {
+      "@components/*": ["components/*"]
+    },
+
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -19,6 +23,8 @@
     ]
   },
   "exclude": [
-    "./src/test.ts"
+    "./src/test.ts",
+    "node_modules",
+    "e2e"
   ]
 }

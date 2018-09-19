@@ -1,2 +1,12 @@
-<h1>{{message}}</h1>
-
+<div class="grid-layout">
+    <div class="menu">
+    </div>
+    <div class="left">
+        <symbol-pallete (symbolSelected)="selectStockSymbol($event);"></symbol-pallete>
+    </div>
+    <div class="main">
+        <company-info [companyName]="model.selectedStockSymbol"></company-info>
+    </div>
+    <div class="right"></div>
+    <div class="console"></div>
+</div>

@@ -1,0 +1,12 @@
+<div>
+    <div><input #stockSearch type="text" placeholder="Type stock symbol here..." ></div>
+    <div>
+        <ul>
+            <li class="app-button" *ngFor="let company of model.companies" (click)="selectSymbol(company);" >
+                <button class="ms-Button">
+                    <span class="ms-Button-label">{{company.symbol}}</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
