@@ -4,6 +4,8 @@ import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { SymbolPalleteComponent, CompanyInfoComponent } from "@components/index";
 import { StockService } from '../injectors/StockService';
+import { Office365Module } from 'modules/office365/office365.module';
+
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { StockService } from '../injectors/StockService';
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientJsonpModule  
+    HttpClientJsonpModule,
+    Office365Module
   ],
   providers: [
     StockService
@@ -23,5 +26,7 @@ import { StockService } from '../injectors/StockService';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
 
 

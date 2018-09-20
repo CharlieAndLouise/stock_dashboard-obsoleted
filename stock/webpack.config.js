@@ -5,6 +5,7 @@ var AngularCompilerPlugin = new AotPlugin({
     tsConfigPath: "./tsconfig.json"
 });
 
+
 module.exports = (environment)=>{
     const webpackconfig = {
         entry: {            
