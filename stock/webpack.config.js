@@ -45,7 +45,6 @@ module.exports = (environment)=>{
                 }
             }
         },
-        context: __dirname,
         devServer: {
             contentBase: __dirname + '/src/assets',
             https: false,

@@ -5,11 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "My Debug1",
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "https://localhost:10086",
-            "webRoot": "${workspaceFolder}"
+            "url": "http://localhost:10086/index.html",
+            "sourceMaps": true,
+            "webRoot": "http://localhost:10086",
+            "sourceMapPathOverrides": {
+                "webpack:///./*": "${webRoot}/*",
+                "webpack://./src/*": "${workspaceFolder}/stock/src/*",
+                "webpack:///*": "*",
+                "webpack:///./~/*": "${webRoot}/node_modules/*",
+                "meteor://💻app/*": "${webRoot}/*"
+            }
         }
     ]
 }

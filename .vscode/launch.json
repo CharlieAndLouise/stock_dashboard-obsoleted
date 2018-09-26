@@ -8,9 +8,16 @@
             "name": "My Debug",
             "type": "chrome",
             "request": "launch",
-            "url": "http://localhost:10086",
+            "url": "http://localhost:10086/index.html",
             "sourceMaps": true,
-            "webRoot": "${workspaceFoler}"
+            "webRoot": "http://localhost:10086",
+            "sourceMapPathOverrides": {
+                "webpack:///./*": "${webRoot}/*",
+                "webpack:///./src/*": "${workspaceFolder}/stock/src/*",
+                "webpack:///*": "*",
+                "webpack:///./~/*": "${webRoot}/node_modules/*",
+                "meteor://💻app/*": "${webRoot}/*"
+            }
         }
     ]
 }
