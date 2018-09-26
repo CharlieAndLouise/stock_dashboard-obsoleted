@@ -7,7 +7,6 @@ import { StockService } from '../injectors/StockService';
 import { Office365Module } from 'modules/office365/office365.module';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

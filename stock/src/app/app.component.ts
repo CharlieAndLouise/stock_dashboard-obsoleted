@@ -11,6 +11,11 @@ export class AppComponent {
     constructor() {
     }
 
+    options = [
+        {id: 1, text: "apple"},
+        {id: 2, text: "orange"},
+        {id: 3, text: "banana"}
+    ];
 
     selectStockSymbol(stockSymbol: string) {
         this.model.selectedStockSymbol = stockSymbol;
