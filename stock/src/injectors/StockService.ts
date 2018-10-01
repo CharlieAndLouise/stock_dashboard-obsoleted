@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map, catchError } from "rxjs/operators";
 import { Observable, of } from "rxjs";
 import { Company, Chart } from "../models/index";
-import { Quote } from "@angular/compiler";
-import { News } from "models/News";
+import { News, Quote } from "models/index";
 
 
 @Injectable()
@@ -39,6 +38,6 @@ export class StockService {
 
     queryStock(symbol: string, types: string, range: string) : Observable<{quote: Quote, news: News[]}> {
         return <Observable<{quote: Quote, news: News[]}>>this.http.jsonp(
-            `https://api.iextrading.com/1.0/stock/${symbol}}/batch?types=${types}&range=${range}`, "callback");
+            `https://api.iextrading.com/1.0/stock/${symbol}/batch?types=${types}&range=${range}`, "callback");
     }
 }

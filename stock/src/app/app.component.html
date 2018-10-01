@@ -6,7 +6,9 @@
     </div>
     <div class="main">
         <company-info [companyName]="model.selectedStockSymbol"></company-info>
-        <dropdown365 [options]="options"></dropdown365>
+        
+        <quote [symbol]="model.selectedStockSymbol"></quote>
+
     </div>
     <div class="right"></div>
     <div class="console"></div>

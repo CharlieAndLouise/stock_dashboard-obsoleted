@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from "@angular/core";
 import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
-import { SymbolPalleteComponent, CompanyInfoComponent } from "@components/index";
+import { SymbolPalleteComponent, CompanyInfoComponent, StockQuoteComponent } from "@components/index";
 import { StockService } from '../injectors/StockService';
 import { Office365Module } from 'modules/office365/office365.module';
 
@@ -11,7 +11,8 @@ import { Office365Module } from 'modules/office365/office365.module';
   declarations: [
     AppComponent,
     SymbolPalleteComponent,
-    CompanyInfoComponent
+    CompanyInfoComponent,
+    StockQuoteComponent
   ],
   imports: [
     BrowserModule,

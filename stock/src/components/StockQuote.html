@@ -1,28 +1,29 @@
 <div>
+
     <table class="ms-Table app-table">
         <tr>
-            <th style="width: 150px;">Symbol</th>
-            <td style="width: 250px;"></td>
-            <th style="width: 150px;">Company Name</th>
-            <td style="width: 250px;"></td>
-        </tr>
-        
-    </table>
-
-    <p/>
-
-    <table>
-        <tr>
-            <th>Open</th>
-            <td></td>
-            <th>Close</th>
-            <td></td>
+            <th style="width:150px;">Open</th>
+            <td style="width:150px;">{{quote.open}}</td>
+            <th style="width:150px;">Close</th>
+            <td style="width:150px;">{{quote.close}}</td>
         </tr>
         <tr>
             <th>High</th>
-            <td></td>
+            <td>{{quote.high}}</td>
             <th>Low</th>
-            <td></td>
+            <td>{{quote.low}}</td>
+        </tr>
+        <tr>
+            <th>Mkt Cap</th>
+            <td>{{quote.marketCap}}</td>
+            <th>P/E Ratio</th>
+            <td>{{quote.peRatio}}</td>
+        </tr>
+        <tr>
+            <th>52 week high</th>
+            <td>{{quote.week52High}}</td>
+            <th>52 week low</th>
+            <td>{{quote.week52Low}}</td>
         </tr>
     </table>
 </div>
