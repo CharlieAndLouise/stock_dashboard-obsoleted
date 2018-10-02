@@ -2,26 +2,41 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from "@angular/core";
 import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
-import { SymbolPalleteComponent, CompanyInfoComponent, StockQuoteComponent } from "@components/index";
 import { StockService } from '../injectors/StockService';
-import { Office365Module } from 'modules/office365/office365.module';
+import { Brain } from '../injectors/Brain';
+import { RoutingModule } from './router.module';
+
+import * as myComponents from "@components/_index"
+
+
+export function getAllComponents(componentPackage: any) {
+  var result = [];
+  for (var key of componentPackage) {
+    result.push(componentPackage[key]);
+  }
+  return result;
+}
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SymbolPalleteComponent,
-    CompanyInfoComponent,
-    StockQuoteComponent
+    myComponents.OneMainLayoutComponent,
+    myComponents.SymbolPalleteComponent,
+    myComponents.CompanyInfoComponent,
+    myComponents.StockQuoteComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    Office365Module
+    RoutingModule
   ],
   providers: [
-    StockService
+    StockService,
+    Brain
   ],
   bootstrap: [AppComponent]
 })

@@ -50,7 +50,10 @@ module.exports = (environment)=>{
             https: false,
             inline: false,
             compress: false,
-            port: 10086
+            port: 10086,
+            historyApiFallback: {
+                index: "/"
+            }
         },
         module: {
             rules: [

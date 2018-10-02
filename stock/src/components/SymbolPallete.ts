@@ -5,6 +5,7 @@ import { StockService } from "../injectors/StockService";
 import { Company } from "../models/Company";
 import { LocalStorageAgent } from "../utilities/LocalStorage";
 import { FAVORITE_STOCKS } from "../utilities/Constant";
+import { Brain } from "../injectors/Brain";
 
 @Component({
     templateUrl: "SymbolPallete.html",
@@ -19,14 +20,16 @@ export class SymbolPalleteComponent implements OnInit {
     set stockList(stocks: Company[]) {
         this.model.companies = stocks;
     }
-
+    /*
     @Output()
     symbolSelected: EventEmitter<string> = new EventEmitter<string>();
+    */
 
     model: Model;
 
     @ViewChild("stockSearch") stockSymbolText: ElementRef;
-    constructor(private stockService: StockService) {
+
+    constructor(private stockService: StockService, private brain: Brain) {
         this.model = new Model();
     }
 
@@ -39,7 +42,9 @@ export class SymbolPalleteComponent implements OnInit {
                     );
                 }
             )
-		).subscribe(this.addStockSymbol);
+        ).subscribe(this.addStockSymbol);
+        
+        
 
 		var storedSymbols = LocalStorageAgent.getItem(FAVORITE_STOCKS, "[]");
 		this.model.companies = JSON.parse(storedSymbols);
@@ -60,7 +65,8 @@ export class SymbolPalleteComponent implements OnInit {
     }
     
     selectSymbol(company: Company) {
-        this.symbolSelected.emit(company.symbol);
+        //this.symbolSelected.emit(company.symbol);
+        this.brain.selectSymbol.next(company.symbol);
     }
 }
 
