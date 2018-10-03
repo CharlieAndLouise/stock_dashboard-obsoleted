@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, ElementRef, ViewChild, OnInit, Input, AfterViewInit } from "@angular/core";
 import { fromEvent, timer } from "rxjs";
 import { switchMap, mergeMap } from "rxjs/operators";
 import { StockService } from "../injectors/StockService";
@@ -47,9 +47,19 @@ export class SymbolPalleteComponent implements OnInit {
         
 
 		var storedSymbols = LocalStorageAgent.getItem(FAVORITE_STOCKS, "[]");
-		this.model.companies = JSON.parse(storedSymbols);
-	}
-
+        this.model.companies = JSON.parse(storedSymbols);
+        
+        if (this.model.companies.length > 0) {
+            this.brain.selectSymbol.next(this.model.companies[0].symbol);
+        }
+    }
+    /*
+    ngAfterViewInit() {
+        if (this.model.companies.length > 0) {
+            this.brain.selectSymbol.next(this.model.companies[0].symbol);
+        }
+    }
+    */
 	private addStockSymbol = (value: Company) => {
 		if (value) {
 

@@ -5,10 +5,11 @@ import { AppComponent } from "./app.component";
 import { componentNeedsResolution } from "@angular/core/src/metadata/resource_loading";
 
 const routes: Routes = [
-    { path: "home", component: myComponents.OneMainLayoutComponent, children: [
+    { path: "", redirectTo: "/OneMain/(main:quote)/" ,pathMatch: "full"},
+    { path: "OneMain", component: myComponents.OneMainLayoutComponent, children: [
         { path: "quote", component: myComponents.StockQuoteComponent, outlet: "main" },
         { path: "info", component: myComponents.CompanyInfoComponent, outlet: "main" }
-    ]}    
+    ]},    
 ];
 
 

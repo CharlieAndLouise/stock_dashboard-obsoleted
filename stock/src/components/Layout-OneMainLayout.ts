@@ -5,7 +5,8 @@ const templateString = `
     <div class="menu">
     </div>
     <div class="left">
-        123
+        <symbol-pallete></symbol-pallete>
+        <router-outlet name="left"></router-outlet>
     </div>
     <div class="main">
         <router-outlet name="main"></router-outlet>
