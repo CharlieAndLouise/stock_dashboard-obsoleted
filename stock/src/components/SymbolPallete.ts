@@ -50,7 +50,7 @@ export class SymbolPalleteComponent implements OnInit {
         this.model.companies = JSON.parse(storedSymbols);
         
         if (this.model.companies.length > 0) {
-            this.brain.selectSymbol.next(this.model.companies[0].symbol);
+            this.brain.selectSymbol(this.model.companies[0].symbol);
         }
     }
     /*
@@ -75,8 +75,7 @@ export class SymbolPalleteComponent implements OnInit {
     }
     
     selectSymbol(company: Company) {
-        //this.symbolSelected.emit(company.symbol);
-        this.brain.selectSymbol.next(company.symbol);
+        this.brain.selectSymbol(company.symbol);
     }
 }
 

@@ -1,24 +1,32 @@
 <div *ngIf="company.symbol">
-    <table class="ms-Table app-table">
+    <table class="ms-Table app-table" style="width:300px;">
         <tr>
-            <th style="width: 150px;">Symbol</th>
-            <td style="width: 250px;">{{company.symbol}}</td>
-            <th style="width: 150px;">Industry</th>
-            <td style="width: 250px;">{{company.industry}}</td>
+            <th>Symbol</th>
+            <td>{{company.symbol}}</td>           
+        </tr>
+        <tr>
+            <th>Industry</th>
+            <td>{{company.industry}}</td>
         </tr>
         <tr>
             <th>Company Name</th>
-            <td>{{company.companyName}}</td>
+            <td>{{company.companyName}}</td>            
+        </tr>
+        <tr>
             <th>Web</th>
             <td>{{company.website}}</td>
         </tr>
         <tr>
-            <th>Description</th>
-            <td colspan="3">{{company.description}}</td>
+            <th colspan="2">Description</th>            
+        </tr>
+        <tr>
+            <td colspan="2">{{company.description}}</td>
         </tr>
         <tr>
             <th>CEO</th>
-            <td>{{company.CEO}}</td>
+            <td>{{company.CEO}}</td>            
+        </tr>
+        <tr>
             <th>Issue Type</th>
             <td>{{company.issueType}}</td>
         </tr>
