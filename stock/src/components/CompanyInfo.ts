@@ -9,33 +9,19 @@ import { Subscription } from "rxjs";
     templateUrl: "CompanyInfo.html",
     selector: "company"
 })
-export class CompanyInfoComponent implements OnInit, OnDestroy {
-    @Input()
-    companyName: String;
+export class CompanyInfoComponent implements OnDestroy {
 
-    company: Company;
+    company: Company = new Company();
     subscription: Subscription;
 
     constructor(private stockService: StockService, private brain: Brain) {
-        this.company = new Company();
-    }
-
-    ngOnInit() {
         this.subscription = this.brain.symbolSelected.pipe(
             flatMap((symbol)=>this.stockService.queryStockSymbol(symbol))
         ).subscribe((company)=>{
             this.company = company;
         });
     }
-    /*
-    ngOnChanges(changes: SimpleChanges) {
-        if (changes.companyName.previousValue !== changes.companyName.currentValue) {
-            this.stockService.queryStockSymbol(changes.companyName.currentValue).subscribe((company: Company)=> {
-                this.company = company;              
-            });
-        }
-    }
-    */
+
     ngOnDestroy() {
         if (this.subscription) {
             this.subscription.unsubscribe();

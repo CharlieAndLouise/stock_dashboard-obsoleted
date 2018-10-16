@@ -44,21 +44,23 @@ export class PriceChartComponent implements OnDestroy {
     private loadPriceData() {
         this.stockService.queryStockChart(this.symbol, "1m").subscribe((data)=>{
             this.__data = data.map((chart: Chart)=>{
-                return [chart.date, chart.low, chart.open, chart.close, chart.high];
+                return [chart.label, chart.low, chart.open, chart.close, chart.high];
             });
             this.drawChart();
         });
     }
 
     private drawChart() {
-        let chartData = new window["google"].visualization.arrayToDataTable(this.__data, true);
-        /*
+        //let chartData = new window["google"].visualization.arrayToDataTable(this.__data, true);
+        let chartData = new window["google"].visualization.DataTable();
         chartData.addColumn("string", "date");
         chartData.addColumn("number", "low");
         chartData.addColumn("number", "open");
         chartData.addColumn("number", "close");
         chartData.addColumn("number", "high");
-        */
+
+        chartData.addRows(this.__data, true);
+        
         if (!this.__chart) {
             this.__chart = new window["google"].visualization.CandlestickChart(this.container.nativeElement);
         }

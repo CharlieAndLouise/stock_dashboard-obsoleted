@@ -9,7 +9,7 @@ import { Subscription } from "rxjs";
     templateUrl: "StockQuote.html",
     selector: "quote"
 })
-export class StockQuoteComponent implements OnInit, OnDestroy {
+export class StockQuoteComponent implements OnDestroy {
     @Input()
     symbol: string;
     quote: Quote = new Quote();
@@ -17,10 +17,6 @@ export class StockQuoteComponent implements OnInit, OnDestroy {
     subscription: Subscription;
 
     constructor(private stockService: StockService, private brain: Brain) {
-        
-    }
-
-    ngOnInit() {
         this.subscription = this.brain.symbolSelected.pipe(
             flatMap((symbol)=>{
                 return this.stockService.queryStock(symbol, "quote", "1m");
