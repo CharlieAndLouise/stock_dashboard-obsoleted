@@ -26,7 +26,8 @@ export function getAllComponents(componentPackage: any) {
     myComponents.OneMainLayoutComponent,
     myComponents.SymbolPalleteComponent,
     myComponents.CompanyInfoComponent,
-    myComponents.StockQuoteComponent
+    myComponents.StockQuoteComponent,
+    myComponents.PriceChartComponent,
   ],
   imports: [
     BrowserModule,

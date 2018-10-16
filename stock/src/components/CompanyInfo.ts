@@ -7,7 +7,7 @@ import { Subscription } from "rxjs";
 
 @Component({
     templateUrl: "CompanyInfo.html",
-    selector: "company-info"
+    selector: "company"
 })
 export class CompanyInfoComponent implements OnInit, OnDestroy {
     @Input()

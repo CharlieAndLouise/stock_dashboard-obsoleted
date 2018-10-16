@@ -3,9 +3,14 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 
-export var testVar = "Abc";
+let google: any = window["google"];
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+//google.charts.load("current", {packages: ["corecharts"]});
+google.charts.setOnLoadCallback(()=>{
+    platformBrowserDynamic().bootstrapModule(AppModule);
+});
+
+
 
 /*
 if (navigator.serviceWorker) {
