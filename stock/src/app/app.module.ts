@@ -5,8 +5,10 @@ import { AppComponent } from './app.component';
 import { StockService } from '../injectors/StockService';
 import { Brain } from '../injectors/Brain';
 import { RoutingModule } from './router.module';
+import { NgReduxModule, NgRedux } from "ng2-redux";
 
 import * as myComponents from "@components/_index"
+import { IAppState } from '../models/MainModel';
 
 
 export function getAllComponents(componentPackage: any) {
@@ -33,7 +35,8 @@ export function getAllComponents(componentPackage: any) {
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    RoutingModule
+    RoutingModule,
+    NgReduxModule
   ],
   providers: [
     StockService,
@@ -41,7 +44,9 @@ export function getAllComponents(componentPackage: any) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(ngRedux: NgRedux<IAppState>) {}
+}
 
 
 

@@ -9,3 +9,7 @@ class FavoriteStockModel {
     selectedStock: Company;
 }
 
+export interface IAppState {
+
+}
+
